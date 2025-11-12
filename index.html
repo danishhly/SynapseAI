@@ -37,7 +37,79 @@
 </div>
 </div>
 </nav>
+<section class="hero">
+     <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-headline">
+                    Transform Your <span class="highlight">Workflow</span> with AI in 60 Seconds
+                </h1>
+                <p class="hero-subheadline">
+                    Experience the power of instant personalization. Tell us your needs, and watch as AI builds your perfect dashboard in real-time.
+                </p>
+                <button class="cta-primary" id="startDemoBtn">
+                    <span>Start Your Free Personalized Demo</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <p class="microcopy">Powered by your choices. No sign-up required.</p>
+            </div>
 
+            <div class="hero-interactive">
+                <div class="config-wizard">
+                    <div class="wizard-header">
+                        <h3>Customize Your Dashboard</h3>
+                        <p>Select your preferences to see your personalized dashboard</p>
+                    </div>
+                    <div class="wizard-controls">
+                        <div class="control-group">
+                            <label for="industrySelect">Industry</label>
+                            <select id="industrySelect" class="wizard-select">
+                                <option value="general">General Business</option>
+                                <option value="design">Interior Design</option>
+                                <option value="farming">Urban Farming</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="education">Education</option>
+                            </select>
+                        </div>
+                        <div class="control-group">
+                            <label>Primary Focus</label>
+                            <div class="toggle-group">
+                                <button class="toggle-btn active" data-focus="analytics">Analytics</button>
+                                <button class="toggle-btn" data-focus="automation">Automation</button>
+                                <button class="toggle-btn" data-focus="collaboration">Collaboration</button>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label for="teamSizeSlider">Team Size</label>
+                            <div class="slider-container">
+                                <input type="range" id="teamSizeSlider" min="1" max="100" value="10" class="slider" aria-valuetext="10 users" aria-valuenow="10">
+                                <span class="slider-value" id="teamSizeValue">10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-preview" id="dashboardPreview">
+                    <div class="dashboard-frame">
+                        <div class="dashboard-header">
+                            <div class="dashboard-title">SynapseAI Dashboard</div>
+                            <div class="dashboard-controls">
+                                <div class="control-dot"></div>
+                                <div class="control-dot"></div>
+                                <div class="control-dot"></div>
+                            </div>
+                        </div>
+                        <div class="dashboard-content" id="dashboardContent">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
