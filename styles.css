@@ -303,3 +303,114 @@ align-items: center;
 }
 
 /* Dashboard Preview */
+.dashboard-preview {
+    position: relative;
+}
+
+.dashboard-frame {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    border: 1-x solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.dashboard-frame:hover{
+    transform: translateY(-4px)
+}
+
+.dashboard-header {
+    background: var(--bg-secondary);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dashboard-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary)
+}
+
+.dashboard-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.controls-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--border-color);
+}
+
+.dashboard-content {
+    padding: 24px;
+    min-height: 400px;
+    background: var(--bg-secondary);
+    transition: all 0.5s ease;
+}
+
+.dashboard-widget {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+    animation: fadeInUp 0.5 ease;
+}
+
+.dashboard-widget h4{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary); 
+}
+
+.dashboard-widget h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.dashboard-widget p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+.widget-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+}
+.widget-stat {
+    background: var(--bg-secondary);
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+}
+.widget-stat-value {
+    font-size: 24px;
+    font-weight:  700;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+.widget-stat-label{
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+@keyframes fadeInUp {
+    from{
+        opacity: 0;
+        transform: translateY(20px)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
