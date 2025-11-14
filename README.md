@@ -152,15 +152,7 @@ npm run format    # Format code with Prettier
 - Throttled scroll events
 - Efficient event delegation
 - Lazy loading for images (if added)
-
-### Accessibility
-- Semantic HTML5 elements
-- ARIA labels and roles
-- Skip navigation link
-- Keyboard navigation support
-- Focus indicators
-- Screen reader friendly
-
+- 
 ### Browser Support
 - Chrome (latest)
 - Firefox (latest)
@@ -211,25 +203,11 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👨‍💻 Author
-
-Built with ❤️ for modern web experiences
-
 ## 🙏 Acknowledgments
 
 - GSAP for amazing animation library
 - Vite for fast build tooling
 - Inter font family for beautiful typography
-
-## 📞 Support
-
-For support, email support@synapseai.com or open an issue in the repository.
-
----
 
 **Note**: This is a fictional project created for demonstration purposes. SynapseAI is not a real product.
 
