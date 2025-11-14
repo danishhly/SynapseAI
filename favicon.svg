@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="faviconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer hexagon shape (matching logo style) -->
+  <path d="M32 4L12 14V30C12 42.15 20.85 51 33 51C45.15 51 54 42.15 54 30V14L32 4Z" fill="url(#faviconGradient)"/>
+  
+  <!-- Inner hexagon shape -->
+  <path d="M32 20L20 25V35C20 40.52 24.48 45 30 45C35.52 45 40 40.52 40 35V25L32 20Z" fill="white" opacity="0.95"/>
+  
+  <!-- AI/Neural network symbol in center -->
+  <circle cx="32" cy="30" r="3" fill="url(#faviconGradient)"/>
+  <circle cx="26" cy="26" r="2" fill="url(#faviconGradient)" opacity="0.8"/>
+  <circle cx="38" cy="26" r="2" fill="url(#faviconGradient)" opacity="0.8"/>
+  <circle cx="26" cy="34" r="2" fill="url(#faviconGradient)" opacity="0.8"/>
+  <circle cx="38" cy="34" r="2" fill="url(#faviconGradient)" opacity="0.8"/>
+</svg>
+
