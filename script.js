@@ -73,6 +73,21 @@ const dashboardTemplates = {
     }
 };
 
+
+// JavaScript: Toggle dark mode on a button click and persist choice
+const darkToggle = document.getElementById('darkToggle'); // e.g. a button or checkbox
+darkToggle.addEventListener('click', () => {
+  const root = document.documentElement;
+  const isDark = root.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+// On page load, apply saved theme:
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.documentElement.classList.add('dark');
+  }
+});
+
 /* -----------------------------------------------------
    DASHBOARD LOGIC
 ----------------------------------------------------- */
