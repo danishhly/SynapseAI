@@ -1335,5 +1335,8 @@ body {
     /* Animation application remains the same */
     animation: slideInUp 0.6s ease-out;
 }
-
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
 
