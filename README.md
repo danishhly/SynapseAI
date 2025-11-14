@@ -2,7 +2,7 @@
 
 A modern, visually stunning, and highly interactive landing page for SynapseAI, a fictional AI-powered vertical SaaS platform. Built with vanilla JavaScript, CSS3, and GSAP animations for a premium user experience.
 
-![SynapseAI Landing Page](https://img.shields.io/badge/Status-Live-success)
+![SynapseAI Landing Page](https://synapseaico.netlify.app/)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
 ## 🚀 Features
