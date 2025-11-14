@@ -1246,4 +1246,75 @@ body {
     font-size: 14px;
 }
 
+/* Responsive Design: Tablet/Small Laptop (Max 1024px) */
+@media (max-width: 1024px) {
+    /* Consolidate single-column layouts */
+    .hero-content,
+    .features-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-content {
+        gap: 40px;
+    }
+    
+    /* Change steps to 2 columns */
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Hide decorative element for smaller layout */
+    .steps-container::before {
+        display: none;
+    }
+    
+    /* Footer goes to 2 columns */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+}
+
+/* Responsive Design: Mobile (Max 768px) */
+@media (max-width: 768px) {
+    /* Use REMs for better accessibility/scaling */
+    .hero-headline {
+        font-size: 2.25rem; /* 36px */
+    }
+    .hero-subheadline {
+        font-size: 1.125rem; /* 18px */
+    }
+    
+    /* Consolidate heading size reduction */
+    .section-header h2,
+    .cta-content h2 {
+        font-size: 2rem; /* 32px */
+    }
+    
+    /* Tighten navigation */
+    .nav-links {
+        gap: 16px;
+        font-size: 0.875rem; /* 14px */
+    }
+    
+    /* Collapse steps and footer to single column */
+    .steps-container,
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Stack CTA buttons vertically */
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    /* Make stacked buttons full width */
+    .cta-primary.large,
+    .cta-secondary.large {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
 
