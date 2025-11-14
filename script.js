@@ -74,19 +74,41 @@ const dashboardTemplates = {
 };
 
 
-// JavaScript: Toggle dark mode on a button click and persist choice
-const darkToggle = document.getElementById('darkToggle'); // e.g. a button or checkbox
-darkToggle.addEventListener('click', () => {
-  const root = document.documentElement;
-  const isDark = root.classList.toggle('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
-// On page load, apply saved theme:
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.documentElement.classList.add('dark');
-  }
-});
+// Dark mode toggle with preference storage
+const toggleBtn = document.getElementById("darkToggle");
+const root = document.documentElement;
+
+function setTheme(theme) {
+    if (theme === "dark") {
+        root.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+    } else {
+        root.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+    }
+}
+
+function initTheme() {
+    const storedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+        setTheme("dark");
+    } else {
+        setTheme("light");
+    }
+}
+
+if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+        const isDark = root.getAttribute("data-theme") === "dark";
+        setTheme(isDark ? "light" : "dark");
+    });
+}
+
+// Initialize theme on page load
+initTheme();
+
 
 /* -----------------------------------------------------
    DASHBOARD LOGIC
