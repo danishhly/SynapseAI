@@ -3,7 +3,7 @@
 A modern, visually stunning, and highly interactive landing page for SynapseAI, a fictional AI-powered vertical SaaS platform. Built with vanilla JavaScript, CSS3, and GSAP animations for a premium user experience.
 
 ### 🔗 Live Demo  
-👉 [Click here to view the live site](https://synapseaico.netlify.app/)
+👉 [SynapseAI](https://synapseaico.netlify.app/)
 
 ## 🚀 Features
 
