@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
+    <!-- GSAP Animation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -29,17 +33,33 @@
                         </svg>
                         <span>SynapseAI</span>
                     </div>
-                    <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
                     <ul class="nav-links" id="navLinks">
                         <li><a href="#features">Features</a></li>
                         <li><a href="#how-it-works">How It Works</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#pricing" class="nav-cta">Get Started</a></li>
                     </ul>
+                    <button id="darkToggle" aria-label="Toggle dark mode" class="dark-toggle-btn" title="Toggle dark mode">
+                        <svg class="theme-icon theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="theme-icon theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <button class="mobile-menu-toggle" aria-label="Toggle menu" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
 </div>
     </nav>
@@ -283,7 +303,7 @@
                 <div class="testimonial-author">
                     <div class="author-avatar">SD</div>
                     <div class="author-info">
-                        <div class="author-name">Sarah Davis</div>
+                        <div class="author-name">Dua jabber</div>
                         <div class="author-role">Creative Director, DesignCo</div>
                     </div>
                 </div>
@@ -292,13 +312,13 @@
             <div class="testimonial-card">
                 <div class="testimonial-content">
                     <div class="quote-icon">"</div>
-                    <p>The automation features are incredible. What used to take hours now happens automatically. SynapseAI has become indispensable to our team.</p>
+                    <p>As a club, FC Barcelona has always been defined by innovation and a relentless pursuit of excellence. But in the modern game, tradition alone is not enough. We need the competitive edge that only data can provide, and that edge is SynapseAI..</p>
                 </div>
                 <div class="testimonial-author">
                     <div class="author-avatar">MJ</div>
                     <div class="author-info">
-                        <div class="author-name">Michael Johnson</div>
-                        <div class="author-role">CTO, TechFlow Inc.</div>
+                        <div class="author-name">John Laporta</div>
+                        <div class="author-role">FC Barcelona</div>
                     </div>
                 </div>
             </div>
@@ -311,7 +331,7 @@
                 <div class="testimonial-author">
                     <div class="author-avatar">EC</div>
                     <div class="author-info">
-                        <div class="author-name">Emily Chen</div>
+                        <div class="author-name">Darush</div>
                         <div class="author-role">Founder, UrbanGrow</div>
                     </div>
                 </div>
