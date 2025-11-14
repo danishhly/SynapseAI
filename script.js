@@ -109,6 +109,356 @@ if (toggleBtn) {
 // Initialize theme on page load
 initTheme();
 
+/* -----------------------------------------------------
+   GSAP ANIMATIONS
+----------------------------------------------------- */
+
+// Register ScrollTrigger plugin
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial states for animated elements
+    gsap.set('.hero-headline, .hero-subheadline, .cta-primary, .microcopy', {
+        opacity: 0,
+        y: 30
+    });
+
+    gsap.set('.hero-interactive', {
+        opacity: 0,
+        x: 50,
+        scale: 0.95
+    });
+
+    gsap.set('.section-header', {
+        opacity: 0,
+        y: 30
+    });
+
+    gsap.set('.step-card, .feature-card, .testimonial-card, .pricing-card', {
+        opacity: 0,
+        y: 50
+    });
+
+    // Hero Section Animations
+    function initHeroAnimations() {
+        const heroTimeline = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        heroTimeline
+            .to('.hero-headline', {
+                opacity: 1,
+                y: 0,
+                duration: 0.8
+            })
+            .to('.hero-subheadline', {
+                opacity: 1,
+                y: 0,
+                duration: 0.8
+            }, '-=0.4')
+            .to('.cta-primary', {
+                opacity: 1,
+                y: 0,
+                duration: 0.6
+            }, '-=0.4')
+            .to('.microcopy', {
+                opacity: 1,
+                y: 0,
+                duration: 0.6
+            }, '-=0.3')
+            .to('.hero-interactive', {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power2.out'
+            }, '-=0.8');
+    }
+
+    // Navbar Animation on Scroll
+    function initNavbarAnimation() {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            gsap.from(navbar, {
+                y: -100,
+                opacity: 0,
+                duration: 0.6,
+                ease: 'power2.out'
+            });
+
+            // Navbar background on scroll
+            ScrollTrigger.create({
+                trigger: 'body',
+                start: 'top -100',
+                onEnter: () => {
+                    gsap.to(navbar, {
+                        backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                        backdropFilter: 'blur(10px)',
+                        duration: 0.3
+                    });
+                },
+                onLeaveBack: () => {
+                    gsap.to(navbar, {
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        duration: 0.3
+                    });
+                }
+            });
+
+            // Dark mode navbar
+            const darkModeObserver = new MutationObserver(() => {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                gsap.to(navbar, {
+                    backgroundColor: isDark ? 'rgba(15, 23, 42, 0.98)' : 'rgba(255, 255, 255, 0.98)',
+                    duration: 0.3
+                });
+            });
+
+            darkModeObserver.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['data-theme']
+            });
+        }
+    }
+
+    // Section Header Animations
+    function initSectionHeaders() {
+        gsap.utils.toArray('.section-header').forEach(header => {
+            gsap.to(header, {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: header,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+    }
+
+    // Step Cards Stagger Animation
+    function initStepCards() {
+        const stepCards = gsap.utils.toArray('.step-card');
+        if (stepCards.length > 0) {
+            gsap.to(stepCards, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                stagger: 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.steps-container',
+                    start: 'top 75%',
+                    end: 'bottom 25%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+    }
+
+    // Feature Cards Stagger Animation
+    function initFeatureCards() {
+        const featureCards = gsap.utils.toArray('.feature-card');
+        if (featureCards.length > 0) {
+            gsap.to(featureCards, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                stagger: {
+                    amount: 0.5,
+                    from: 'start'
+                },
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.features-grid',
+                    start: 'top 75%',
+                    end: 'bottom 25%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+    }
+
+    // Testimonial Cards Stagger Animation
+    function initTestimonialCards() {
+        const testimonialCards = gsap.utils.toArray('.testimonial-card');
+        if (testimonialCards.length > 0) {
+            gsap.to(testimonialCards, {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                stagger: 0.2,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.testimonials-grid',
+                    start: 'top 75%',
+                    end: 'bottom 25%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+    }
+
+    // Pricing Cards Stagger Animation
+    function initPricingCards() {
+        const pricingCards = gsap.utils.toArray('.pricing-card');
+        if (pricingCards.length > 0) {
+            gsap.to(pricingCards, {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.7,
+                stagger: 0.15,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: '.pricing-grid',
+                    start: 'top 75%',
+                    end: 'bottom 25%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+    }
+
+    // CTA Section Animation
+    function initCTASection() {
+        const ctaSection = document.querySelector('.cta-section');
+        if (ctaSection) {
+            gsap.from('.cta-content', {
+                opacity: 0,
+                y: 50,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: ctaSection,
+                    start: 'top 75%',
+                    end: 'bottom 25%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+    }
+
+    // Trust Badges Animation
+    function initTrustBadges() {
+        const trustBadges = gsap.utils.toArray('.trust-badge');
+        if (trustBadges.length > 0) {
+            gsap.to(trustBadges, {
+                opacity: 1,
+                scale: 1,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: 'back.out(1.7)',
+                scrollTrigger: {
+                    trigger: '.trust-badges',
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+    }
+
+    // Parallax Effect for Hero Section
+    function initParallaxEffect() {
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            gsap.to('.hero-interactive', {
+                y: -50,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: heroSection,
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+        }
+    }
+
+    // Smooth Scroll for Anchor Links
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Use ScrollToPlugin if available, otherwise use native smooth scroll
+                        if (typeof ScrollToPlugin !== 'undefined') {
+                            gsap.to(window, {
+                                duration: 1,
+                                scrollTo: {
+                                    y: target,
+                                    offsetY: 80
+                                },
+                                ease: 'power2.inOut'
+                            });
+                        } else {
+                            // Fallback to native smooth scroll
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                }
+            });
+        });
+    }
+
+    // Initialize all animations when DOM is ready
+    function initGSAPAnimations() {
+        // Wait for DOM to be fully loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                initHeroAnimations();
+                initNavbarAnimation();
+                initSectionHeaders();
+                initStepCards();
+                initFeatureCards();
+                initTestimonialCards();
+                initPricingCards();
+                initCTASection();
+                initTrustBadges();
+                initParallaxEffect();
+                initSmoothScroll();
+            });
+        } else {
+            initHeroAnimations();
+            initNavbarAnimation();
+            initSectionHeaders();
+            initStepCards();
+            initFeatureCards();
+            initTestimonialCards();
+            initPricingCards();
+            initCTASection();
+            initTrustBadges();
+            initParallaxEffect();
+            initSmoothScroll();
+        }
+    }
+
+    // Register ScrollToPlugin if available
+    if (typeof ScrollToPlugin !== 'undefined') {
+        gsap.registerPlugin(ScrollToPlugin);
+    }
+
+    // Initialize animations
+    initGSAPAnimations();
+
+    // Refresh ScrollTrigger on window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            ScrollTrigger.refresh();
+        }, 250);
+    });
+}
+
 
 /* -----------------------------------------------------
    DASHBOARD LOGIC
@@ -260,42 +610,18 @@ function initMobileMenu() {
 }
 
 /* -----------------------------------------------------
-   SMOOTH SCROLL
+   SMOOTH SCROLL (Handled by GSAP)
 ----------------------------------------------------- */
 
-function initSmoothScroll() {
-    $('a[href^="#"]', true).forEach(link => {
-        link.addEventListener("click", e => {
-            e.preventDefault();
-            const target = $(link.getAttribute("href"));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80,
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
-}
+// Smooth scroll is now handled by GSAP ScrollToPlugin
+// function initSmoothScroll() { ... } - Removed, using GSAP version
 
 /* -----------------------------------------------------
-   NAVBAR SCROLL EFFECT
+   NAVBAR SCROLL EFFECT (Handled by GSAP)
 ----------------------------------------------------- */
 
-function initNavbarScroll() {
-    const navbar = $(".navbar");
-    if (!navbar) return;
-
-    window.addEventListener(
-        "scroll",
-        throttle(() => {
-            navbar.style.boxShadow =
-                window.scrollY > 100
-                    ? "0 4px 6px -1px rgba(0,0,0,0.1)"
-                    : "none";
-        }, 100)
-    );
-}
+// Navbar scroll effect is now handled by GSAP ScrollTrigger
+// function initNavbarScroll() { ... } - Removed, using GSAP version
 
 /* -----------------------------------------------------
    CTA BUTTONS
@@ -393,15 +719,17 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeDashboard();
     initFeatureInteractions();
     initMobileMenu();
-    initSmoothScroll();
-    initNavbarScroll();
+    // Smooth scroll and navbar scroll are handled by GSAP animations
+    // initSmoothScroll(); - Handled by GSAP
+    // initNavbarScroll(); - Handled by GSAP
     initCTAButtons();
     initPricingSection();
 
-    // Reusable fade-in observer for various UI blocks
-    observeFadeIn(".step-card");
-    observeFadeIn(".feature-card");
-    observeFadeIn(".testimonial-card");
+    // Note: GSAP animations handle step-card, feature-card, and testimonial-card
+    // The observeFadeIn calls are disabled to avoid conflicts with GSAP
+    // observeFadeIn(".step-card");
+    // observeFadeIn(".feature-card");
+    // observeFadeIn(".testimonial-card");
 
     // Page fade-in on load
     document.body.style.opacity = "0";
