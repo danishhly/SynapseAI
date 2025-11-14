@@ -584,3 +584,11 @@ align-items: center;
     border-radius: 4px 4px 0 0;
     transition: height 0.3s ease;
 }
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
