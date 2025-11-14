@@ -355,7 +355,7 @@ body {
     border: 2px solid var(--border-color);
     border-radius: 8px;
     font-size: 14px;
-    background: white;
+    background: var(--bg-primary);
     color: var(--text-primary);
     cursor: pointer;
     transition: border-color 0.3s ease;
@@ -696,6 +696,32 @@ body {
     padding-top: 24px;
     border-top: 1px solid var(--border-color);
 }
+
+.security-badges {
+  display: flex;
+   color: var(--bg-primary);
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  color: var(--bg-primary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 1.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+
+}
+
+.badge:hover {
+  transform: scale(1.05);
+}
+
 .chart-preview {
     background: var(--bg-secondary);
     padding: 20px;
@@ -824,7 +850,7 @@ body {
 }
 .badge {
     padding: 8px 16px;
-    background: white;
+    background: var(--bg-primary);
     border-radius: 6px;
     font-size: 14px;
     font-weight: 500;
